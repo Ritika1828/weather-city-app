@@ -15,7 +15,7 @@ const cityApiBaseUrl = process.env.CITY_API_BASE_URL;
 function SearchBar({ handleCityClick }) {
   const [cityList, setCityList] = useState([]);
   const [showCityBox, setShowCityBox] = useState(false);
-  const [inputValue, setInputValue] = useState(null);
+  const [inputValue, setInputValue] = useState(undefined);
   const boxRef = useRef(null);
 
 
@@ -30,7 +30,7 @@ function SearchBar({ handleCityClick }) {
   }
 
   const onFocus = () =>  {
-    setInputValue(null);
+    setInputValue(undefined);
     setShowCityBox(true);
   }
 
