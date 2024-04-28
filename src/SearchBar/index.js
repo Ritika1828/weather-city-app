@@ -18,8 +18,7 @@ function SearchBar({ handleCityClick }) {
   const [inputValue, setInputValue] = useState(undefined);
   const boxRef = useRef(null);
 
-
-  const fetchCityList = (args) =>  {
+  const fetchCityList = (args) => {
     getCityInfo(cityApiBaseUrl, cityApiToken, args.value).then((data) => {
       if (data) {
         setCityList(data);
@@ -27,33 +26,32 @@ function SearchBar({ handleCityClick }) {
         setCityList([]);
       }
     });
-  }
+  };
 
-  const onFocus = () =>  {
+  const onFocus = () => {
     setInputValue(undefined);
     setShowCityBox(true);
-  }
+  };
 
-  const  onEnter = ({ value }) =>  {
+  const onEnter = ({ value }) => {
     handleCityClick && handleCityClick(value);
     setShowCityBox(false);
-  }
+  };
 
   const handleClickOutside = (event) => {
     if (boxRef.current && !boxRef.current.contains(event.target)) {
-        setShowCityBox(false);
+      setShowCityBox(false);
     }
-};
+  };
 
   const debouncedSearchData = debounce(fetchCityList, 300);
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true);
     return () => {
-        document.removeEventListener('click', handleClickOutside, true);
+      document.removeEventListener('click', handleClickOutside, true);
     };
-}, []);
-
+  }, []);
 
   return (
     <div className={styles.searchBox} ref={boxRef}>
@@ -79,7 +77,8 @@ function SearchBar({ handleCityClick }) {
                   handleCityClick(city?.name);
                   setInputValue(city?.name);
                   setShowCityBox(false);
-                }}>
+                }}
+              >
                 {city?.name}
               </div>
             );

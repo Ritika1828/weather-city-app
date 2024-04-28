@@ -73,7 +73,11 @@ const CustomInput = ({
         value={value}
         onKeyDown={handleKeyPress}
       />
-      {icon ? <div className={cx(iconClassname, styles.inputIcon)} onClick={()=> onEnter()}>{icon}</div> : null}
+      {icon ? (
+        <div className={cx(iconClassname, styles.inputIcon)} onClick={() => onEnter()}>
+          {icon}
+        </div>
+      ) : null}
     </div>
   );
 };

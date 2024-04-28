@@ -1,27 +1,23 @@
-
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html{
-    height: 100%;
+html {
+  height: 100%;
 }
 
-
-
 body {
-  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
 }
 
-p , h3 {
+p,
+h3 {
   font-size: 1rem;
   @media only screen and (min-width: 768px) {
     font-size: 1.6rem;
@@ -34,8 +30,8 @@ h1 {
     font-size: 6rem;
   }
 }
-#root{
-    height: 100%;
+#root {
+  height: 100%;
 }
 
 input,
@@ -43,22 +39,19 @@ label,
 select,
 button,
 textarea {
-    margin: 0;
-    border: 0;
-    padding: 0;
-    display: inline-block;
-    vertical-align: middle;
-    white-space: normal;
-    background: none;
-    font-size: 100%;
-    line-height: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  font-size: 100%;
+  line-height: 100%;
 }
 
 /* Remove the stupid outer glow in Webkit */
 input:focus,
 textarea:focus {
-    outline: 0;
+  outline: 0;
 }
-
-
-  

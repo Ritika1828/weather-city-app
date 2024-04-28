@@ -1,20 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styles from './index.module.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './index.module.scss';
 
-function Layout({children}) {
+function Layout({ children }) {
   return (
     <div className={styles.app}>
-        <div className={styles.container}>
-            {children}
-        </div>
-        
+      <div className={styles.container}>{children}</div>
     </div>
-  )
+  );
 }
 
 Layout.propTypes = {
-    children: PropTypes.node
-}
+  children: PropTypes.node
+};
 
-export default Layout
+export default Layout;
