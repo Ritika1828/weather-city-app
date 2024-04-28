@@ -38,5 +38,27 @@ h1 {
     height: 100%;
 }
 
+input,
+label,
+select,
+button,
+textarea {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+    background: none;
+    font-size: 100%;
+    line-height: 100%;
+}
+
+/* Remove the stupid outer glow in Webkit */
+input:focus,
+textarea:focus {
+    outline: 0;
+}
+
 
   

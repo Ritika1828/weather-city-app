@@ -12,16 +12,23 @@ function App() {
   const [location, setLocation] = useState('patna')
   const [weatherData, setWeatherData] = useState({})
 
+
+  function handleCityClick(name){
+    setLocation(name)
+  }
+
   useEffect(()=> {
     getWeatherInformationBasedOnCountry(API_BASE_URL, API_TOKEN, location).then((data)=> setWeatherData(data))
   }, [location])
+
+
 
   console.log(weatherData, 'weatherInfo')
 
 
   return (
     <Layout>
-       <SearchBar/>
+       <SearchBar handleCityClick={handleCityClick}/>
        <WeatherInfoComp  cityName={weatherData?.name} windInfo={weatherData?.wind} temperatureInfo={weatherData?.main} weatherInfo={weatherData?.weather?.[0]} />
     </Layout>
   );

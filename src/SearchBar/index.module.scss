@@ -1,0 +1,50 @@
+.searchBox{
+    position: relative;
+    .cityList{
+        position: absolute;
+        top: 40px;
+        background-color: white;
+        width: 100%;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+    
+        @media only screen and (min-width: 768px) {
+            top: 48px;
+        }
+        &__item{
+            padding: 12px;
+            color: black;
+            border-bottom: 1px solid #ccc;
+            cursor:pointer
+        }
+        &__item:last-child{
+            border-bottom: 0px 
+        }
+        &__item:hover{
+            background: rgba($color: #000000, $alpha: 0.1);
+        }
+    }
+}
+
+.box{
+    height: 40px;
+    margin-bottom: 20px;
+    &.inputBoxHideBorder{
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+   
+    @media only screen and (min-width: 768px) {
+        height: 48px;
+        margin-bottom: 28px;
+    }
+    .inputBox{
+        width: calc(100% - 40px);
+        font-size: 1rem;
+        @media only screen and (min-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
+}
