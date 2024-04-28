@@ -26,7 +26,7 @@ function WeatherInfo({ cityName, windInfo, temperatureInfo, weatherInfo }) {
       <div className={styles.container__top}>
         <div className={styles.container__top__box1}>
           <p>{cityName}</p>
-          <h1>{Math.ceil(temperatureInfo?.temp)} °F</h1>
+          <h1>{Math.ceil(temperatureInfo?.temp)} °C</h1>
         </div>
         <div className={styles.container__top__box2}>
             <div className={styles.container__top__box2__wrapper}>
@@ -37,7 +37,7 @@ function WeatherInfo({ cityName, windInfo, temperatureInfo, weatherInfo }) {
       </div>
       <div className={styles.container__bottom}>
         <div className={styles.container__bottom__feels}>
-          <h3>{Math.ceil(temperatureInfo?.feels_like)} °F</h3>
+          <h3>{Math.ceil(temperatureInfo?.feels_like)} °C</h3>
           <p>Feels Like</p>
         </div>
         <div className={styles.container__bottom__humidity}>
@@ -45,7 +45,7 @@ function WeatherInfo({ cityName, windInfo, temperatureInfo, weatherInfo }) {
           <p>Humidity</p>
         </div>
         <div className={styles.container__bottom__wind}>
-          <h3>{windInfo?.speed}</h3>
+          <h3>{windInfo?.speed} m/sec</h3>
           <p>Wind Speed</p>
         </div>
       </div>

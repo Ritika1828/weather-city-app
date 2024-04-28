@@ -35,7 +35,6 @@ function App() {
     }
   }, [location]);
 
-
   return (
     <Layout>
       <SearchBar handleCityClick={handleCityClick} />

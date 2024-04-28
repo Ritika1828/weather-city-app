@@ -33,7 +33,6 @@ export const httpRequest = ({
             .catch((e) => {
               controller?.abort();
               if(retryLimit-- > 0 ){
-                console.log(retryLimit, 'retryLimit')
                 retryFunction()
               } else {
                 if (e?.response?.data?.error?.message) {
