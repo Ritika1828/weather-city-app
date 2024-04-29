@@ -1,15 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import {
-  CLOUD,
-  HUMIDITY,
-  RAIN,
-  SKY,
-  SNOW,
-  WIND,
-  DRIZZLE,
-  IMAGE_PATH_OBJECT
-} from '../constants/imagePathObject';
+import { CLOUD, RAIN, SKY, SNOW, DRIZZLE, IMAGE_PATH_OBJECT } from '../constants/imagePathObject';
 import styles from './index.module.scss';
 
 const getWeatherIcon = (icon) => {
@@ -64,10 +55,10 @@ function WeatherInfo({ cityName, windInfo, temperatureInfo, weatherInfo }) {
 }
 
 WeatherInfo.propTypes = {
-  cityName: PropTypes.string,
-  windInfo: PropTypes.object,
-  temperatureInfo: PropTypes.object,
-  weatherInfo: PropTypes.object
+  cityName: PropTypes.string, // name of city you have searched
+  windInfo: PropTypes.object, // Information related to wind (speed, direction etc..) coming from api
+  temperatureInfo: PropTypes.object, // Information related to temperature (feel like, temp ,  etc..) coming from api
+  weatherInfo: PropTypes.object // Information related to weather (cloudy, rainly ,icons etc..) coming from api
 };
 
 export default memo(WeatherInfo);

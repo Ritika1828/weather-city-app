@@ -1,3 +1,9 @@
+/**
+ * Checks if a value is empty.
+ *
+ * @param {*} value The value to check.
+ * @returns {boolean} True if the value is empty, otherwise false.
+ */
 export default function isEmpty(val) {
   if (
     val === '' ||

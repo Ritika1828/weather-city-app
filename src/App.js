@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import Layout from './Layout';
-import WeatherInfoComp from './WeatherInfoComp';
-import SearchBar from './SearchBar';
-import ErrorLoadingHoc from './ErrorLoadingHoc';
-import { getWeatherInformationBasedOnCity, getWeatherInformationBasedOnLatAndLon } from './apis/';
-import isEmpty from './utlis/isEmpty';
+import React, { useEffect, useState } from 'react'; // Import React and necessary hooks
+import Layout from './Layout'; // Import Layout component
+import WeatherInfoComp from './WeatherInfoComp'; // Import WeatherInfoComp component
+import SearchBar from './SearchBar'; // Import SearchBar component
+import ErrorLoadingHoc from './ErrorLoadingHoc'; // Import ErrorLoadingHoc component
+import { getWeatherInformationBasedOnCity, getWeatherInformationBasedOnLatAndLon } from './apis/'; // Import API functions
+import isEmpty from './utlis/isEmpty'; // Import isEmpty utility function
 
-const API_TOKEN = process.env.WEATHER_API_TOKEN;
-const API_BASE_URL = process.env.API_BASE_URL;
+const API_TOKEN = process.env.WEATHER_API_TOKEN; // Get weather API token from environment variables
+const API_BASE_URL = process.env.API_BASE_URL; // Get API base URL from environment variables
+
 
 function App() {
-  const [location, setLocation] = useState('');
-  const [weatherData, setWeatherData] = useState({});
-  const [loader, setLoader] = useState(false);
-  const [position, setPosition] = useState({});
+  const [location, setLocation] = useState(''); // State for storing location (city name)
+  const [weatherData, setWeatherData] = useState({}); // State for storing weather data
+  const [loader, setLoader] = useState(false); // State for loader
+  const [position, setPosition] = useState({}); // State for geolocation position
+  const [err, setErr] = useState(false); // State for error
 
-  function handleCityClick(name) {
-    setLocation(name);
+  // Function to handle city click
+  function handleCityClick(name) { 
+    setLocation(name); // Set location state to the clicked city name
   }
 
+  // Effect hook to fetch weather information based on city when location changes
   useEffect(() => {
     if (location) {
+      setErr(false)
       setLoader(true);
       getWeatherInformationBasedOnCity(API_BASE_URL, API_TOKEN, location)
         .then((data) => {
@@ -32,13 +37,16 @@ function App() {
 
           setLoader(false);
         })
-        .catch(() => setLoader(false));
+        .catch(() => {setLoader(false); setErr(true);});
     }
   }, [location]);
 
+
+  // Effect hook to fetch geolocation position
   useEffect(() => {
     if ('geolocation' in navigator) {
       setLoader(true);
+      setErr(false);
       navigator.geolocation.getCurrentPosition(
         function (position) {
           setPosition({
@@ -56,6 +64,8 @@ function App() {
     }
   }, []);
 
+
+  // Effect hook to fetch weather information based on geolocation position
   useEffect(() => {
     if (!isEmpty(position)) {
       setLoader(true);
@@ -75,17 +85,19 @@ function App() {
         })
         .catch(() => {
           setLoader(false);
+          setErr(true);
         });
     }
   }, [position]);
 
   return (
     <Layout>
-      <SearchBar handleCityClick={handleCityClick} />
+      <SearchBar handleCityClick={handleCityClick} loader={loader}/>
       <ErrorLoadingHoc
         loading={loader}
         noResultFound={isEmpty(weatherData)}
         initialPage={location === '' && isEmpty(position)}
+        err={err}
       >
         <WeatherInfoComp
           cityName={weatherData?.name}

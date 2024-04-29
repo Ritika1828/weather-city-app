@@ -83,7 +83,18 @@ const CustomInput = ({
 };
 
 CustomInput.propTypes = {
-  type: PropTypes.oneOf(['text', 'tel', 'number', 'password', 'file', 'date', 'email'])
+  type: PropTypes.oneOf(['text', 'tel', 'number', 'password', 'file', 'date', 'email']),
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
+  value: PropTypes.string,
+  icon: PropTypes.node,
+  iconClassname: PropTypes.string,
+  inputClassName: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  boxClassName: PropTypes.func,
+  onEnter: PropTypes.func
 };
 
 export default CustomInput;

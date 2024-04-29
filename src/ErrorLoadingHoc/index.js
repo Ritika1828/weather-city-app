@@ -1,8 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './index.module.scss';
+import React from 'react'; // Import React
+import PropTypes from 'prop-types'; // Import PropTypes for defining prop types
+import styles from './index.module.scss'; // Import component styles
 
+// Define the ErrorLoadingHoc functional component which takes err, loading, noResultFound, children, and initialPage as props
 function ErrorLoadingHoc({ err, loading, noResultFound, children, initialPage }) {
+  // Define a function to determine the element to render based on props
   const getRenderElement = () => {
     if (loading) {
       return (
@@ -60,6 +62,14 @@ function ErrorLoadingHoc({ err, loading, noResultFound, children, initialPage })
   return <div className={styles.container}>{getRenderElement()}</div>;
 }
 
-ErrorLoadingHoc.propTypes = {};
+// Define prop types for the ErrorLoadingHoc component
+
+ErrorLoadingHoc.propTypes = {
+  err: PropTypes.string,
+  loading: PropTypes.bool,
+  noResultFound: PropTypes.bool,
+  children: PropTypes.node,
+  initialPage: PropTypes.bool
+};
 
 export default ErrorLoadingHoc;
