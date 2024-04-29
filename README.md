@@ -33,7 +33,7 @@
 ## Running the app locally
 
     1.Connect with toppr-vpn before running the App.
-    2.Run command npm run start:dev.
+    2.Run command npm run start.
     3.This will start a nodemon process  on the port 1234.
 
     •  Now you can go to http://localhost:1234/ to access this project.
