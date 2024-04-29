@@ -13,7 +13,7 @@ function ErrorLoadingHoc({ err, loading, noResultFound, children, initialPage })
             <img src={require('../assets/loader.gif')} />
           </div>
 
-          <div className={styles.container__loader__text}> Loading.... </div>
+          <div className={styles.container__loader__text}> Loading weather forecast .... </div>
         </div>
       );
     } else if (initialPage) {
