@@ -65,6 +65,7 @@ function SearchBar({ handleCityClick }) {
         onFocus={onFocus}
         onEnter={onEnter}
         value={inputValue}
+        placeholder={'Enter city name'}
       />
       {showCityBox && cityList.length > 0 ? (
         <div className={styles.cityList}>

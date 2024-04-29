@@ -1,9 +1,16 @@
 import { httpRequest } from '../utlis/httpRequest';
 
-export function getWeatherInformationBasedOnCountry(apiBaseUrl, appID, city) {
+export function getWeatherInformationBasedOnCity(apiBaseUrl, appID, city) {
   return httpRequest({
     url: `${apiBaseUrl}/weather/`,
     params: `?q=${city}&appid=${appID}&units=metric`
+  });
+}
+
+export function getWeatherInformationBasedOnLatAndLon(apiBaseUrl, appID, Lat, Log) {
+  return httpRequest({
+    url: `${apiBaseUrl}/weather/`,
+    params: `?lat=${Lat}&lon=${Log}&appid=${appID}&units=metric`
   });
 }
 

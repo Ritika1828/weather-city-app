@@ -9,8 +9,6 @@ export const httpRequest = ({ method = 'GET', url, params, payload, headers, ret
           data: payload,
           headers,
           signal: controller?.signal
-        }).then((data) => {
-          return data.json();
         }),
         new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -18,6 +16,9 @@ export const httpRequest = ({ method = 'GET', url, params, payload, headers, ret
           }, 15000);
         })
       ])
+        .then((data) => {
+          return data.json();
+        })
         .then((res) => {
           resolve(res);
         })
